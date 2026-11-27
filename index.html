@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12382f">
+<title>میزان | دستیار زندگی</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{--bg:#f3f5f0;--card:#fff;--ink:#18342c;--muted:#718078;--green:#174b3c;--green2:#26735a;--gold:#c7a15d;--line:#e6ebe5;--soft:#eaf2ec;--rose:#b95e58;--shadow:0 12px 32px #163e2d10}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,system-ui,sans-serif;padding-bottom:92px}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
+header{background:linear-gradient(135deg,#102c26,#205b49);color:white;padding:22px 18px 24px;border-radius:0 0 28px 28px;position:relative;overflow:hidden}header:after{content:"۞";position:absolute;left:8px;top:-36px;font-size:155px;color:#ffffff0a}
+.top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}.brand{font-size:25px;font-weight:800}.tag{font-size:11px;color:#c8d9cf}.date{font-size:12px;color:#d6e3db;margin-top:15px}.hello{font-size:20px;font-weight:700;margin:6px 0 14px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1}.stat{background:#ffffff13;border:1px solid #ffffff18;border-radius:16px;padding:10px 12px}.stat small{display:block;color:#c8d9cf;font-size:11px}.stat strong{font-size:21px}
+main{max-width:760px;margin:auto;padding:16px 14px}.section-head{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 10px}.section-head h2{font-size:16px;margin:0}.muted{color:var(--muted);font-size:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:15px;margin-bottom:12px;box-shadow:var(--shadow)}.progress-wrap{display:flex;align-items:center;gap:14px}.ring{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) var(--p,0%),#edf0e9 0);position:relative;flex-shrink:0}.ring:before{content:"";position:absolute;inset:7px;background:white;border-radius:50%}.ring b{z-index:1;font-size:16px}.progress-info{flex:1}.progress-info strong{font-size:15px}.bar{height:7px;background:#edf0e9;border-radius:9px;overflow:hidden;margin-top:9px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green2),var(--gold));width:0%;border-radius:9px;transition:.25s}
+.task{display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-bottom:1px solid #f0f2ee}.task:last-child{border:0}.task input{accent-color:var(--green2);width:19px;height:19px;margin-top:3px;flex-shrink:0}.task label{flex:1;font-size:13px;line-height:1.7}.task.done label{text-decoration:line-through;color:#9aa49d}
+.pill{font-size:10px;background:var(--soft);color:var(--green);padding:3px 8px;border-radius:20px;white-space:nowrap}
+.btn{background:var(--green);color:white;padding:10px 14px;border-radius:12px;font-size:12px;font-weight:600}.btn.light{background:var(--soft);color:var(--green)}.btn.gold{background:#f4ead7;color:#76551e}.btn.danger{background:#fae9e7;color:var(--rose)}.btn.small{padding:7px 10px}
+.row{display:flex;gap:8px;align-items:center}.row>*{min-width:0}.grow{flex:1}
+input[type=text],input[type=time],input[type=date],textarea,select{width:100%;border:1px solid var(--line);background:#fbfcfa;border-radius:11px;padding:10px;color:var(--ink);outline:none;font-size:13px}textarea{resize:vertical;min-height:75px}
+.counter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.counter{background:#f8faf7;border:1px solid var(--line);border-radius:15px;padding:12px 8px;text-align:center}.counter small{display:block;font-size:10px;color:var(--muted);min-height:30px}.counter strong{font-size:22px;display:block;margin:5px}.counter button{background:var(--soft);color:var(--green);border-radius:9px;padding:6px 13px;font-weight:700}
+.tabs{position:fixed;bottom:0;left:0;right:0;background:#fffffff0;backdrop-filter:blur(15px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:10}.tab{background:none;color:#849188;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:55px}.tab span{font-size:19px}.tab.active{color:var(--green);font-weight:800}
+.page{display:none}.page.active{display:block}.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick{padding:13px;border-radius:16px;background:white;border:1px solid var(--line);text-align:right}.quick b{display:block;font-size:13px}.quick small{font-size:10px;color:var(--muted)}
+.empty{padding:18px;text-align:center;color:var(--muted);font-size:12px}.item-line{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.item-line:last-child{border:0}
+.modal{position:fixed;inset:0;background:#0b211bcc;display:none;align-items:flex-end;justify-content:center;z-index:20;padding:12px}.modal.show{display:flex}.sheet{background:white;border-radius:22px 22px 18px 18px;padding:18px;width:min(100%,520px);max-height:85vh;overflow:auto}.sheet h3{margin:0 0 14px}.field{margin:10px 0}.field label{font-size:11px;color:var(--muted);display:block;margin-bottom:5px}
+.note{background:#fff9eb;border:1px solid #f1e5c9;padding:12px;border-radius:14px;font-size:11px;color:#715a2d;line-height:1.9}
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);background:#183a30;color:white;padding:10px 16px;border-radius:30px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:30}.toast.show{opacity:1}
+@media(min-width:650px){main{padding:22px}.stats{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><div><div class="brand">میزان <span style="color:#d8bd80">✦</span></div><div class="tag">دستیار بندگی، خودسازی و زندگی</div></div><button class="btn gold small" onclick="showPage('settings')">تنظیمات ⚙</button></div>
+ <div class="date" id="todayDate"></div><div class="hello" id="greeting">امروز را با نیت خوب آغاز کن</div>
+ <div class="stats">
+  <div class="stat"><small>پیشرفت امروز</small><strong id="headProgress">۰٪</strong></div>
+  <div class="stat"><small>روزهای پیوستگی</small><strong id="streak">۰ روز</strong></div>
+  <div class="stat"><small>کارهای انجام‌شده</small><strong id="doneCount">۰</strong></div>
+  <div class="stat"><small>کارهای باقی‌مانده</small><strong id="leftCount">۰</strong></div>
+ </div>
+</header>
+<main>
+<section id="home" class="page active">
+ <div class="section-head"><h2>نقشه امروز</h2><span class="muted" id="dayName"></span></div>
+ <div class="card"><div class="progress-wrap"><div class="ring" id="ring"><b id="ringText">۰٪</b></div><div class="progress-info"><strong id="progressTitle">قدم‌های کوچک، استمرار بزرگ</strong><div class="muted" id="progressSub">هر مورد را پس از انجام علامت بزن.</div><div class="bar"><i id="progressBar"></i></div></div></div></div>
+ <div class="section-head"><h2>برنامه و تعهدهای امروز</h2><button class="btn light small" onclick="openTaskModal()">＋ افزودن کار</button></div>
+ <div class="card" id="taskList"></div>
+ <div class="section-head"><h2>ذکرهای روزانه</h2><span class="muted">با هر بار لمس، شمارنده بالا می‌رود</span></div>
+ <div class="card"><div class="counter-grid" id="counters"></div><div class="muted" style="margin-top:10px;text-align:center">شمارنده‌ها هر روز به‌صورت خودکار از نو آغاز می‌شوند؛ سوابق روزهای قبل محفوظ است.</div></div>
+ <div class="section-head"><h2>دسترسی سریع</h2></div>
+ <div class="quick-grid">
+  <button class="quick" onclick="showPage('tomorrow')"><b>🌙 کارهای فردا</b><small>برای فردا برنامه بچین</small></button>
+  <button class="quick" onclick="showPage('review')"><b>🪞 محاسبه نفس</b><small>مرور روز و یادداشت</small></button>
+  <button class="quick" onclick="showPage('skills')"><b>📚 رشد و مهارت</b><small>زبان دلخواه، کتاب و مهارت‌ها</small></button>
+  <button class="quick" onclick="showPage('reports')"><b>📈 گزارش من</b><small>روند و استمرار هفتگی</small></button>
+ </div>
+ <div class="note" style="margin-top:13px">یادآوری: برنامه برای کمک به استمرار است، نه ایجاد فشار. واجبات و حقوق دیگران مقدم‌اند و موارد مستحبی را متناسب با توان و احکام شرعی تنظیم کن.</div>
+</section>
+
+<section id="tomorrow" class="page">
+ <div class="section-head"><h2>🌙 دفتر فردا</h2><span class="muted" id="tomorrowDate"></span></div>
+ <div class="card"><div class="muted" style="margin-bottom:9px">کارهایی که می‌خواهی فردا انجام بدهی، اینجا بنویس. با شروع روز بعد به فهرست امروز منتقل می‌شوند.</div><div class="row"><input id="tomorrowInput" type="text" placeholder="مثلاً پیگیری یک کار مهم..."><button class="btn" onclick="addTomorrow()">افزودن</button></div><div id="tomorrowList" style="margin-top:10px"></div></div>
+ <div class="card"><b style="font-size:14px">سه اولویت فردا</b><div class="muted" style="margin:5px 0 10px">فقط سه کار مهم را انتخاب کن تا روزت شلوغ و پراکنده نشود.</div><div id="priorities"></div></div>
+</section>
+
+<section id="skills" class="page">
+ <div class="section-head"><h2>📚 رشد و یادگیری</h2><span class="muted">بدون سرفصل تحمیلی</span></div>
+ <div class="card"><b>حوزه‌های پیگیری</b><div class="muted" style="margin:5px 0 12px">موضوع‌ها و زبان موردنظرت را خودت تعریف کن؛ اپ فقط زمان و استمرار را ثبت می‌کند.</div><div id="skillList"></div><div class="row" style="margin-top:10px"><input id="skillInput" type="text" placeholder="افزودن مهارت یا زبان دلخواه"><button class="btn" onclick="addSkill()">＋</button></div></div>
+ <div class="card"><b>زمان یادگیری امروز</b><div class="row" style="margin-top:10px"><input id="studyMinutes" type="number" min="0" max="600" placeholder="دقیقه"><button class="btn" onclick="saveStudy()">ثبت زمان</button></div><div class="muted" id="studyTotal" style="margin-top:8px"></div></div>
+ <div class="card"><b>کتاب‌خوانی</b><div class="row" style="margin-top:10px"><input id="bookInput" type="text" placeholder="نام کتاب یا بخشی که خواندی"><button class="btn" onclick="saveBook()">ثبت</button></div><div id="bookHistory" class="muted" style="margin-top:8px"></div></div>
+</section>
+
+<section id="review" class="page">
+ <div class="section-head"><h2>🪞 محاسبه نفس</h2><span class="muted">پایان روز، با مهربانی و صداقت</span></div>
+ <div class="card"><div class="field"><label>امروز بابت چه چیزی شکرگزارم؟</label><textarea id="gratitude" placeholder="..."></textarea></div><div class="field"><label>کدام رفتارم را باید اصلاح کنم؟</label><textarea id="improve" placeholder="..."></textarea></div><div class="field"><label>آیا حق کسی بر گردنم مانده؟ چه جبرانی لازم است؟</label><textarea id="rights" placeholder="..."></textarea></div><div class="field"><label>مهم‌ترین درس امروز</label><textarea id="lesson" placeholder="..."></textarea></div><button class="btn" onclick="saveReview()">ذخیره محاسبه نفس</button></div>
+ <div class="card"><b>یادداشت‌های ذخیره‌شده</b><div id="reviewHistory" class="muted" style="margin-top:9px"></div></div>
+</section>
+
+<section id="reports" class="page">
+ <div class="section-head"><h2>📈 گزارش و استمرار</h2><span class="muted">آمار ثبت‌شده در همین دستگاه</span></div>
+ <div class="card"><div class="row" style="justify-content:space-between"><div><div class="muted">میانگین تکمیل ۷ روز اخیر</div><b style="font-size:27px" id="weeklyAvg">۰٪</b></div><div><div class="muted">روزهای فعال</div><b style="font-size:27px" id="activeDays">۰</b></div></div><div id="weekBars" style="display:flex;gap:8px;align-items:end;height:115px;margin-top:18px"></div><div class="muted" style="display:flex;justify-content:space-around;margin-top:5px" id="weekLabels"></div></div>
+ <div class="card"><b>خلاصه امروز</b><div id="reportSummary" class="muted" style="margin-top:8px"></div></div>
+ <div class="card"><b>پشتیبان‌گیری و انتقال اطلاعات</b><p class="muted">اطلاعات در حافظه همین مرورگر ذخیره می‌شود. هر چند وقت یک‌بار خروجی بگیر.</p><div class="row"><button class="btn light" onclick="exportData()">دریافت نسخه پشتیبان</button><label class="btn light" style="display:inline-block">بازیابی فایل<input type="file" accept="application/json" hidden onchange="importData(event)"></label></div></div>
+</section>
+
+<section id="settings" class="page">
+ <div class="section-head"><h2>⚙ تنظیمات و برنامه ثابت</h2></div>
+ <div class="card"><b>زمان‌بندی و یادآوری</b><div class="field"><label>ساعت شروع یادآوری روزانه</label><input type="time" id="reminderTime" value="07:00"></div><div class="field"><label>یادآوری محاسبه نفس</label><input type="time" id="reviewTime" value="21:30"></div><button class="btn" onclick="saveSettings()">ذخیره تنظیمات</button> <button class="btn light" onclick="enableNotifications()">فعال‌سازی اعلان‌ها</button><p class="muted">اعلان‌ها فقط وقتی صفحه/اپ در مرورگر باز باشد قابل اتکاست؛ برای یادآوری دقیق در پس‌زمینه، نسخه اندرویدی با سرویس اعلان لازم است.</p></div>
+ <div class="card"><b>برنامه هفتگی پایه</b><div class="muted" style="margin:5px 0 10px">روزها و تعهدهای ثابت از اطلاعاتی که دادی تنظیم شده‌اند. هر مورد را می‌توانی ویرایش یا حذف کنی.</div><div id="weeklyPlan"></div><button class="btn light" onclick="restoreDefaults()">بازگردانی برنامه اولیه</button></div>
+ <div class="card"><b>اطلاعات و حریم خصوصی</b><p class="muted">اطلاعات شخصی به سرور ارسال نمی‌شود و در حافظه مرورگر همین دستگاه می‌ماند. پاک‌کردن داده‌های مرورگر ممکن است اطلاعات را حذف کند؛ از نسخه پشتیبان استفاده کن.</p><button class="btn danger" onclick="clearAll()">پاک کردن همه اطلاعات</button></div>
+</section>
+</main>
+<nav class="tabs">
+ <button class="tab active" data-page="home" onclick="showPage('home')"><span>⌂</span>امروز</button>
+ <button class="tab" data-page="tomorrow" onclick="showPage('tomorrow')"><span>☾</span>فردا</button>
+ <button class="tab" data-page="skills" onclick="showPage('skills')"><span>▤</span>یادگیری</button>
+ <button class="tab" data-page="review" onclick="showPage('review')"><span>♡</span>محاسبه نفس</button>
+ <button class="tab" data-page="reports" onclick="showPage('reports')"><span>⌁</span>گزارش</button>
+</nav>
+<div class="modal" id="taskModal" onclick="if(event.target===this)closeTaskModal()"><div class="sheet"><h3>افزودن کار به امروز</h3><div class="field"><label>عنوان کار</label><input id="newTaskTitle" type="text" placeholder="عنوان کوتاه و روشن"></div><div class="field"><label>دسته‌بندی</label><select id="newTaskCat"><option>شخصی</option><option>عبادت</option><option>خانواده</option><option>کار</option><option>یادگیری</option><option>سلامت</option></select></div><div class="row"><button class="btn grow" onclick="addTodayTask()">افزودن</button><button class="btn light" onclick="closeTaskModal()">انصراف</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id), fa=n=>Number(n).toLocaleString('fa-IR');
+const weekdays=['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه','شنبه'];
+const defaultPlan=[
+ ['شنبه','کار ۰۸:۰۰ تا ۲۰:۰۰','روزه پیشنهادی','صدقه یک‌روزدرمیان','یادگیری در فرصت مجاز'],
+ ['یکشنبه','کار ۰۸:۰۰ تا ۲۰:۰۰','تماس کوتاه با اقوام','شب پیش از روزه: نماز شب و مسجد در صورت توان'],
+ ['دوشنبه','کار ۰۸:۰۰ تا ۲۰:۰۰','روزه پیشنهادی','صدقه یک‌روزدرمیان'],
+ ['سه‌شنبه','کار ۰۸:۰۰ تا ۲۰:۰۰','شب پایگاه (پیشنهادی)','شب پیش از روزه: نماز شب و مسجد در صورت توان'],
+ ['چهارشنبه','کار ۰۸:۰۰ تا ۲۰:۰۰','روزه پیشنهادی','هیئت شهرری','صدقه یک‌روزدرمیان'],
+ ['پنجشنبه','کار ۰۸:۰۰ تا ۲۰:۰۰','هیئت شهر خودت'],
+ ['جمعه','صبح بهشت زهرا و حرم حضرت عبدالعظیم','عصر کلاس رسانه بچه‌ها','تماس با خویشاوندان','صدقه یک‌روزدرمیان']
+];
+const dailyDefaults=[
+ ['نمازهای واجب اول وقت و با توجه','عبادت'],['یک صفحه قرآن همراه ترجمه/تفسیر','عبادت'],['زیارت عاشورا','عبادت'],
+ ['۱۰۰ صلوات امام زمان (عج)','ذکر'],['۱۰۰ صلوات حضرت زهرا (س)','ذکر'],['۱۰۰ استغفار','ذکر'],
+ ['مطالعه سوره برنامه‌ریزی‌شده هفته','قرآن'],['دعای شبانه طبق نوبت','عبادت'],['مطالعه کتاب','یادگیری'],
+ ['تمرین یا یادگیری یکی از مهارت‌ها در فرصت مجاز','یادگیری'],['حرکت و مراقبت از سلامت','سلامت'],['مراقبت از زبان، نگاه و اخلاق','اخلاق'],
+ ['مرتب‌سازی محیط و آماده‌سازی فردا','نظم'],['محاسبه نفس پایان روز','خودسازی']
+];
+let data=JSON.parse(localStorage.getItem('mizanData')||'{}');
+function persist(){localStorage.setItem('mizanData',JSON.stringify(data))}
+function todayKey(d=new Date()){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function dayData(key=todayKey()){data.days??={};data.days[key]??={tasks:[],counts:[0,0,0],study:0};return data.days[key]}
+function dayTasks(key=todayKey()){
+ let d=dayData(key);if(!d.initialized){d.tasks=d.tasks||[];let dow=new Date(key+'T12:00:00').getDay();d.tasks=[...dailyDefaults.map((x,i)=>({id:'d'+i,title:x[0],cat:x[1],done:false,base:true})),...(d.extra||[])];d.initialized=true;}return d.tasks;
+}
+function toast(t){let el=$('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2100)}
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.page===id));if(id==='reports')renderReports();if(id==='settings')renderSettings();if(id==='tomorrow')renderTomorrow();if(id==='skills')renderSkills();if(id==='review')renderReview()}
+function renderHeader(){let now=new Date();$('todayDate').textContent=now.toLocaleDateString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});$('dayName').textContent=weekdays[now.getDay()];$('tomorrowDate').textContent=new Date(now.getTime()+86400000).toLocaleDateString('fa-IR',{weekday:'long',month:'long',day:'numeric'});let h=now.getHours();$('greeting').textContent=h<11?'صبح بخیر؛ امروز را با نیت پاک شروع کن':h<17?'روزت پربرکت؛ قدم بعدی را بردار':'شب آرام؛ فرصت مرور و شکرگزاری است'}
+function renderHome(){let tasks=dayTasks(),done=tasks.filter(t=>t.done).length,total=tasks.length,pct=total?Math.round(done/total*100):0; $('headProgress').textContent=fa(pct)+'٪';$('doneCount').textContent=fa(done);$('leftCount').textContent=fa(total-done);$('ring').style.setProperty('--p',pct+'%');$('ringText').textContent=fa(pct)+'٪';$('progressBar').style.width=pct+'%';$('progressTitle').textContent=pct===100?'آفرین! امروز را با موفقیت به پایان رساندی':pct>=60?'مسیر خوبی آمده‌ای؛ ادامه بده':'قدم‌های کوچک، استمرار بزرگ';$('progressSub').textContent=fa(done)+' مورد از '+fa(total)+' مورد انجام شده است';
+ $('taskList').innerHTML=tasks.map(t=>`<div class="task ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask('${t.id}')"><label>${esc(t.title)} <span class="pill">${esc(t.cat||'شخصی')}</span></label>${t.base?'':`<button class="btn danger small" onclick="deleteTask('${t.id}')">×</button>`}</div>`).join('')||'<div class="empty">هنوز کاری ثبت نشده است.</div>';
+ let d=dayData();$('counters').innerHTML=['صلوات امام زمان','صلوات حضرت زهرا','استغفار'].map((n,i)=>`<div class="counter"><small>${n}</small><strong>${fa(d.counts[i])} / ۱۰۰</strong><button onclick="inc(${i})">＋</button><button onclick="dec(${i})" style="margin-right:4px">−</button></div>`).join('');
+ let streak=0,dt=new Date();for(let i=0;i<365;i++){let k=todayKey(dt),dd=data.days?.[k],ts=dd?.tasks||[];if(ts.length&&ts.every(t=>t.done)){streak++}else if(i>0)break;dt.setDate(dt.getDate()-1)}$('streak').textContent=fa(streak)+' روز';
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toggleTask(id){let t=dayTasks().find(x=>x.id===id);if(t)t.done=!t.done;persist();renderHome()}
+function inc(i){let d=dayData();d.counts[i]=Math.min(100,d.counts[i]+1);persist();renderHome()}
+function dec(i){let d=dayData();d.counts[i]=Math.max(0,d.counts[i]-1);persist();renderHome()}
+function openTaskModal(){$('taskModal').classList.add('show');$('newTaskTitle').focus()}function closeTaskModal(){$('taskModal').classList.remove('show')}
+function addTodayTask(){let v=$('newTaskTitle').value.trim();if(!v)return toast('عنوان کار را بنویس');let d=dayData();d.extra??=[];let t={id:'x'+Date.now(),title:v,cat:$('newTaskCat').value,done:false};d.extra.push(t);d.tasks.push(t);persist();$('newTaskTitle').value='';closeTaskModal();renderHome();toast('به برنامه امروز اضافه شد')}
+function deleteTask(id){let d=dayData();d.tasks=d.tasks.filter(t=>t.id!==id);d.extra=(d.extra||[]).filter(t=>t.id!==id);persist();renderHome()}
+function addTomorrow(){let v=$('tomorrowInput').value.trim();if(!v)return;data.tomorrow??=[];data.tomorrow.push({id:Date.now(),title:v,done:false,priority:false});$('tomorrowInput').value='';persist();renderTomorrow()}
+function renderTomorrow(){data.tomorrow??=[];$('tomorrowList').innerHTML=data.tomorrow.length?data.tomorrow.map(t=>`<div class="item-line"><span>${esc(t.title)}</span><button class="btn danger small" onclick="removeTomorrow(${t.id})">حذف</button></div>`).join(''):'<div class="empty">فهرست فردا خالی است؛ یک کار مهم اضافه کن.</div>';$('priorities').innerHTML=[0,1,2].map((n)=>`<div class="field"><label>اولویت ${fa(n+1)}</label><select onchange="setPriority(${n},this.value)"><option value="">انتخاب از کارهای فردا</option>${data.tomorrow.map(t=>`<option value="${t.id}" ${data.priorities?.[n]==t.id?'selected':''}>${esc(t.title)}</option>`).join('')}</select></div>`).join('')}
+function removeTomorrow(id){data.tomorrow=data.tomorrow.filter(t=>t.id!==id);persist();renderTomorrow()}function setPriority(n,v){data.priorities??=[];data.priorities[n]=v;persist()}
+function addSkill(){let v=$('skillInput').value.trim();if(!v)return;data.skills??=['امنیت شبکه','زبان دلخواه','OSINT','هوش مصنوعی','رسانه'];data.skills.push(v);$('skillInput').value='';persist();renderSkills()}
+function renderSkills(){data.skills??=['امنیت شبکه','زبان دلخواه','OSINT','هوش مصنوعی','رسانه'];$('skillList').innerHTML=data.skills.map((s,i)=>`<div class="item-line"><span>${esc(s)}</span><button class="btn danger small" onclick="removeSkill(${i})">حذف</button></div>`).join('');let d=dayData();$('studyTotal').textContent='زمان یادگیری ثبت‌شده امروز: '+fa(d.study||0)+' دقیقه';$('bookHistory').textContent=(data.books||[]).slice(-5).reverse().map(x=>x.date+' — '+x.name).join('  |  ')||'هنوز کتابی ثبت نشده است'}
+function removeSkill(i){data.skills.splice(i,1);persist();renderSkills()}function saveStudy(){let n=Math.max(0,Math.min(600,Number($('studyMinutes').value)||0));dayData().study=(dayData().study||0)+n;persist();$('studyMinutes').value='';renderSkills();toast('زمان یادگیری ثبت شد')}
+function saveBook(){let n=$('bookInput').value.trim();if(!n)return;data.books??=[];data.books.push({name:n,date:new Date().toLocaleDateString('fa-IR')});$('bookInput').value='';persist();renderSkills();toast('مطالعه ثبت شد')}
+function saveReview(){let r={date:todayKey(),gratitude:$('gratitude').value,improve:$('improve').value,rights:$('rights').value,lesson:$('lesson').value};data.reviews??=[];data.reviews=data.reviews.filter(x=>x.date!==r.date);data.reviews.push(r);persist();renderReview();toast('محاسبه نفس ذخیره شد')}
+function renderReview(){let r=(data.reviews||[]).find(x=>x.date===todayKey());['gratitude','improve','rights','lesson'].forEach(k=>$(k).value=r?.[k]||'');$('reviewHistory').innerHTML=(data.reviews||[]).slice(-5).reverse().map(x=>`<div class="item-line"><span>${x.date}</span><span>${esc(x.lesson||'یادداشت روزانه')}</span></div>`).join('')||'هنوز یادداشتی ثبت نشده است.'}
+function renderReports(){let days=[];for(let i=6;i>=0;i--){let d=new Date();d.setDate(d.getDate()-i);let k=todayKey(d),ts=data.days?.[k]?.tasks||[];days.push({k,p:ts.length?Math.round(ts.filter(t=>t.done).length/ts.length*100):0,label:weekdays[d.getDay()].slice(0,2)})}let avg=Math.round(days.reduce((a,b)=>a+b.p,0)/7),active=days.filter(x=>x.p>0).length;$('weeklyAvg').textContent=fa(avg)+'٪';$('activeDays').textContent=fa(active)+' از ۷';$('weekBars').innerHTML=days.map(x=>`<div style="flex:1;height:100%;display:flex;align-items:end"><div title="${x.p}%" style="height:${Math.max(5,x.p)}%;width:100%;background:linear-gradient(#c8a45f,#24654f);border-radius:8px 8px 3px 3px"></div></div>`).join('');$('weekLabels').innerHTML=days.map(x=>`<span>${x.label}</span>`).join('');let ts=dayTasks();$('reportSummary').textContent=`امروز ${fa(ts.filter(t=>t.done).length)} مورد از ${fa(ts.length)} مورد انجام شده؛ ${fa(dayData().study||0)} دقیقه یادگیری و ${fa(dayData().counts.reduce((a,b)=>a+b,0))} ذکر ثبت شده است.`}
+function renderSettings(){let saved=data.settings||{};$('reminderTime').value=saved.reminder||'07:00';$('reviewTime').value=saved.review||'21:30';$('weeklyPlan').innerHTML=defaultPlan.map((x,i)=>`<div class="item-line" style="align-items:flex-start"><b style="min-width:65px">${x[0]}</b><span style="flex:1;font-size:11px;line-height:1.8">${x.slice(1).join(' • ')}</span></div>`).join('')}
+function saveSettings(){data.settings={reminder:$('reminderTime').value,review:$('reviewTime').value};persist();toast('تنظیمات ذخیره شد')}
+async function enableNotifications(){if(!('Notification'in window))return toast('این مرورگر اعلان را پشتیبانی نمی‌کند');let p=await Notification.requestPermission();toast(p==='granted'?'اعلان‌ها فعال شدند':'اجازه اعلان داده نشد')}
+function checkReminders(){if(!('Notification'in window)||Notification.permission!=='granted')return;let now=new Date(),t=now.toTimeString().slice(0,5),s=data.settings||{};if([s.reminder||'07:00',s.review||'21:30'].includes(t)){let key=todayKey()+'-'+t;if(data.lastNotice!==key){new Notification('میزان',{body:t===(s.review||'21:30')?'چند دقیقه برای محاسبه نفس و مرور روز وقت بگذار.':'روزت را با نیت خوب و برنامه روشن آغاز کن.'});data.lastNotice=key;persist()}}}
+function restoreDefaults(){if(!confirm('برنامه اولیه نمایش داده شود؟'))return;toast('برنامه پایه در تنظیمات نمایش داده می‌شود')}
+function clearAll(){if(!confirm('همه اطلاعات این اپ از همین مرورگر پاک شود؟'))return;localStorage.removeItem('mizanData');data={};location.reload()}
+function exportData(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mizan-backup-'+todayKey()+'.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);persist();location.reload()}catch{toast('فایل پشتیبان معتبر نیست')}};r.readAsText(f)}
+function rollover(){let today=todayKey();if(data.lastOpen&&data.lastOpen!==today&&data.tomorrow?.length){let prev=data.days?.[today];if(!prev){let tasks=data.tomorrow.map(t=>({...t,id:'x'+t.id,done:false,base:false}));data.days??={};data.days[today]={tasks,extra:tasks,counts:[0,0,0],study:0,initialized:true}}data.tomorrow=[];data.priorities=[]}data.lastOpen=today;persist()}
+function init(){rollover();renderHeader();renderHome();setInterval(checkReminders,30000);checkReminders();}init();
+</script>
+</body></html>
